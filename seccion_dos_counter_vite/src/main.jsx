@@ -7,6 +7,6 @@ import "./styleds.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelloWorldApp />
-    <FirstApp />
+    <FirstApp title="Esto es una Props" />
   </React.StrictMode>
 );

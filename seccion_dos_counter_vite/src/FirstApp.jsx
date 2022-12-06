@@ -1,9 +1,7 @@
-import React from "react";
-
-export const FirstApp = () => {
+export const FirstApp = ({ title }) => {
   return (
     <>
-      <div>FirstApp</div>
+      <h1>{title}</h1>
       <p>explicacion del nodo padre </p>
     </>
   );
