@@ -17,4 +17,12 @@ describe("Pruebas en <FirstApp/>>", () => {
     // expect(h1.innerHTML).toContain(title);
     expect(getByTestId("test-title").innerHTML).toBe(title);
   });
+  test("should aparecer el subtitulo enviado por props", () => {
+    const title = "Hola soy Goku";
+    const subTitle = "soy un sbtitulo";
+    const { getAllByText } = render(
+      <FirstApp title={title} subTitle={subTitle} />
+    );
+    expect(getAllByText(subTitle).length).toBe(2);
+  });
 });
