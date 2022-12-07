@@ -7,7 +7,7 @@ describe("Pruebas en <FirstApp/>>", () => {
   //   const { container } = render(<FirstApp title={title} />);
   //   expect(container).toMatchSnapshot();
   // });
-  test("should de mostrar el titulo en un h1", () => {
+  test("should de hacer match con el snapshot", () => {
     const title = "hola, Soy Goku";
     const { container, getByText, getByTestId } = render(
       <FirstApp title={title} />
