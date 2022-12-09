@@ -4,8 +4,8 @@ import { AddCategory } from './components/AddCategory';
 export const GiftExpertApp = () => {
 	const [categories, setCategories] = useState(['One Punch', 'dragon Ball']);
 
-	const onAddCategory = () => {
-		setCategories([...categories, 'Valoran']);
+	const onAddCategory = (newCategory) => {
+		setCategories([newCategory, ...categories]);
 		// setCategories = [...categories, "Valoran"];
 	};
 	return (
@@ -14,7 +14,11 @@ export const GiftExpertApp = () => {
 			<h1>GiftExpertApp</h1>
 
 			{/* imput */}
-			<AddCategory setCategories={setCategories} />
+			<AddCategory
+				// setCategories={setCategories}
+				onNewCategory={onAddCategory}
+			/>
+
 			{/* listado de Gif */}
 
 			<ol>
