@@ -6,7 +6,7 @@ import "./styleds.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <CounterApp value={0} />
+    <CounterApp value={100} />
     {/* <FirstApp title="Hola soy Goku" subTitle={"esto es un subtitulo"} /> */}
   </React.StrictMode>
 );
