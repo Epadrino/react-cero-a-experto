@@ -5,6 +5,7 @@ export const GiftExpertApp = () => {
 	const [categories, setCategories] = useState(['One Punch', 'dragon Ball']);
 
 	const onAddCategory = (newCategory) => {
+		if (categories.includes(newCategory)) return;
 		setCategories([newCategory, ...categories]);
 		// setCategories = [...categories, "Valoran"];
 	};
@@ -16,7 +17,7 @@ export const GiftExpertApp = () => {
 			{/* imput */}
 			<AddCategory
 				// setCategories={setCategories}
-				onNewCategory={onAddCategory}
+				onNewCategory={(value) => onAddCategory(value)}
 			/>
 
 			{/* listado de Gif */}
