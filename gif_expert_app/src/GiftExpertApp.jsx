@@ -14,9 +14,9 @@ export const GiftExpertApp = () => {
 			<h1>GiftExpertApp</h1>
 
 			{/* imput */}
-			<AddCategory />
+			<AddCategory setCategories={setCategories} />
 			{/* listado de Gif */}
-			<button onClick={onAddCategory}>Agregar</button>
+
 			<ol>
 				{categories.map((category) => {
 					return <li key={category}>{category}</li>;
