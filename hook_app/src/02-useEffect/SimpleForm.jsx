@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const SimpleForm = () => {
 	const [formState, setFormState] = useState({
@@ -12,6 +12,16 @@ export const SimpleForm = () => {
 		const { name, value } = target;
 		setFormState({ ...formState, [name]: value });
 	};
+
+	useEffect(() => {
+		console.log('useEffect llamado');
+	}, []);
+	useEffect(() => {
+		console.log('username cambiado');
+	}, [username]);
+	useEffect(() => {
+		console.log('email cambiado');
+	}, [email]);
 	return (
 		<>
 			<h1>Formulario Simple</h1>
