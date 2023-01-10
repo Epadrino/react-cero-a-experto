@@ -4,7 +4,7 @@ import { Message } from './Message';
 
 export const FormWithCustomHook = () => {
 	// CustomHook useForm
-	const { formState, onInputCange } = useForm({
+	const { formState, onInputCange, onResetForm } = useForm({
 		username: '',
 		email: '',
 		password: '',
@@ -60,6 +60,10 @@ export const FormWithCustomHook = () => {
 				onChange={onInputCange}
 			/>
 			{username === `Padrino` && <Message />}
+
+			<button onClick={onResetForm} className='btn btn-primary mt-2'>
+				Borrar
+			</button>
 		</>
 	);
 };

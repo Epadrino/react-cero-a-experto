@@ -9,9 +9,15 @@ export const useForm = (initialForm = {}) => {
 		const { name, value } = target;
 		setFormState({ ...formState, [name]: value });
 	};
+	//funcion para borrar el contenido de los inputs
+	const onResetForm = () => {
+		setFormState(initialForm);
+	};
+
 	//parametros necesarios para el funcionamiento del hook
 	return {
 		formState,
 		onInputCange,
+		onResetForm,
 	};
 };
