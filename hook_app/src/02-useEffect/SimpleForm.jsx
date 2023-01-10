@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Message } from './Message';
 
 export const SimpleForm = () => {
 	const [formState, setFormState] = useState({
@@ -22,6 +23,7 @@ export const SimpleForm = () => {
 	useEffect(() => {
 		console.log('email cambiado');
 	}, [email]);
+
 	return (
 		<>
 			<h1>Formulario Simple</h1>
@@ -43,6 +45,7 @@ export const SimpleForm = () => {
 				value={email}
 				onChange={onInputCange}
 			/>
+			{username === `Padrino` && <Message />}
 		</>
 	);
 };
