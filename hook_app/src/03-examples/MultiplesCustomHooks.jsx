@@ -1,7 +1,6 @@
+import { useFetch, useCounter } from '../hooks';
 import { CardPokemons } from './CardPokemons';
 import { Loading } from './Loading';
-
-import { useFetch, useCounter } from '../hooks';
 
 export const MultiplesCustomHooks = () => {
 	// id necesario para encontrar el pokemon

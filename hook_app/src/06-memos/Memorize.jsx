@@ -8,6 +8,8 @@ export const Memorize = () => {
 
 	// custonHook para incrementar la numeracion
 	const { counter, increment } = useCounter(10);
+
+	//Componente
 	return (
 		<>
 			<h1>
