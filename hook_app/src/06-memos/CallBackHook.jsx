@@ -5,9 +5,10 @@ export const CallBackHook = () => {
 	// hook para cambiar el estado del contador
 	const [counter, setCounter] = useState(10);
 
-	// hook sirve para memorizar una funsion para evitar refrescar todo el componente cuando algo cambie
-	const incrementFather = useCallback(() => {
-		setCounter((value) => value + 1);
+	/* hook sirve para memorizar una funsion y evitar refrescar 
+    todo el componente cuando se ejecute*/
+	const incrementFather = useCallback((value) => {
+		setCounter((number) => number + value);
 	}, []);
 
 	// //funsion para incrementar el contador
