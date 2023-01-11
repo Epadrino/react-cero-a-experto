@@ -5,7 +5,7 @@ export const useForm = (initialForm = {}) => {
 	const [formState, setFormState] = useState(initialForm);
 
 	//funcion para cambiar el contenido de los inputs
-	const onInputCange = ({ target }) => {
+	const onInputChange = ({ target }) => {
 		const { name, value } = target;
 		setFormState({ ...formState, [name]: value });
 	};
@@ -16,8 +16,9 @@ export const useForm = (initialForm = {}) => {
 
 	//parametros necesarios para el funcionamiento del hook
 	return {
+		...formState,
 		formState,
-		onInputCange,
+		onInputChange,
 		onResetForm,
 	};
 };

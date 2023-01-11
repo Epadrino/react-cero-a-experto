@@ -12,7 +12,7 @@ export const SimpleForm = () => {
 	const { username, email } = formState;
 
 	//funcion para borrar el contenido de los inputs
-	const onInputCange = ({ target }) => {
+	const onInputChange = ({ target }) => {
 		const { name, value } = target;
 		setFormState({ ...formState, [name]: value });
 	};
@@ -43,7 +43,7 @@ export const SimpleForm = () => {
 				placeholder='Username'
 				name='username'
 				value={username}
-				onChange={onInputCange}
+				onChange={onInputChange}
 			/>
 			<input
 				type='email'
@@ -51,7 +51,7 @@ export const SimpleForm = () => {
 				placeholder='example@email.com'
 				name='email'
 				value={email}
-				onChange={onInputCange}
+				onChange={onInputChange}
 			/>
 			{username === `Padrino` && <Message />}
 		</>

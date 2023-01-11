@@ -4,7 +4,7 @@ import { Message } from './Message';
 
 export const FormWithCustomHook = () => {
 	// CustomHook useForm
-	const { formState, onInputCange, onResetForm } = useForm({
+	const { formState, onInputChange, onResetForm } = useForm({
 		username: '',
 		email: '',
 		password: '',
@@ -41,7 +41,7 @@ export const FormWithCustomHook = () => {
 				placeholder='Username'
 				name='username'
 				value={username}
-				onChange={onInputCange}
+				onChange={onInputChange}
 			/>
 			<input
 				type='email'
@@ -49,7 +49,7 @@ export const FormWithCustomHook = () => {
 				placeholder='example@email.com'
 				name='email'
 				value={email}
-				onChange={onInputCange}
+				onChange={onInputChange}
 			/>
 			<input
 				type='password'
@@ -57,7 +57,7 @@ export const FormWithCustomHook = () => {
 				placeholder='Constraseña'
 				name='password'
 				value={password}
-				onChange={onInputCange}
+				onChange={onInputChange}
 			/>
 			{username === `Padrino` && <Message />}
 
