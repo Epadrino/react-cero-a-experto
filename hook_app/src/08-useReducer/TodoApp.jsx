@@ -1,13 +1,22 @@
-import { useReducer } from "react";
+import { useReducer } from 'react';
+import { todoReducer } from './todoReducer';
 
-const initialState=[
-    {
-        
-    }
-]
+const initialState = [
+	{
+		id: new Date().getTime(),
+		description: 'Recolectar la piedra del alma',
+		done: false,
+	},
+	{
+		id: new Date().getTime() * 3,
+		description: 'Recolectar la piedra del alma',
+		done: false,
+	},
+];
+
 export const TodoApp = () => {
+	const [state, dispatch] = useReducer(todoReducer, initialState);
 
-    const [state, dispatch] = useReducer(first, initialState)
 	return (
 		<>
 			<h1>TodoApp</h1>
