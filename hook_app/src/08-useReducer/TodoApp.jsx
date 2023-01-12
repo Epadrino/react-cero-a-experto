@@ -16,6 +16,7 @@ const initialState = [
 	// },
 ];
 
+// funcion para guardar en el local Store
 const init = () => {
 	return JSON.parse(localStorage.getItem('todos')) || [];
 };
@@ -27,14 +28,12 @@ export const TodoApp = () => {
 	// hook para guardar la informacion (todo) en el local storage
 	useEffect(() => {
 		localStorage.setItem('todos', JSON.stringify(todos));
-
-		return () => {};
 	}, [todos]);
 
 	// funsion para agregar los nuevos todo
 	const handleNewTodo = (todo) => {
 		const action = {
-			type: '[TODO] Add todo',
+			type: '[TODO] Add Todo',
 			payload: todo,
 		};
 		dispatch(action);
@@ -42,7 +41,15 @@ export const TodoApp = () => {
 	// funsion para eliminar un todo
 	const handleDeleteTodo = (id) => {
 		dispatch({
-			type: '[TODO] Delete todo',
+			type: '[TODO] Delete Todo',
+			payload: id,
+		});
+	};
+
+	// funsion para tachar el todo
+	const handleToggleTodo = (id) => {
+		dispatch({
+			type: '[TODO] Toggle Todo',
 			payload: id,
 		});
 	};
@@ -56,7 +63,11 @@ export const TodoApp = () => {
 
 			<div className='row'>
 				<div className='col-7'>
-					<TodoList todos={todos} onDeleteTodo={handleDeleteTodo} />
+					<TodoList
+						todos={todos}
+						onDeleteTodo={handleDeleteTodo}
+						onToggleTodo={handleToggleTodo}
+					/>
 				</div>
 				<div className='col-5'>
 					<h4>Agregar TODO</h4>
