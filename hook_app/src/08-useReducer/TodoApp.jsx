@@ -1,30 +1,50 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
+
 import { TodoAdd, TodoList, todoReducer } from './';
 
+//estado inicial de hook de todos
 const initialState = [
-	{
-		id: new Date().getTime(),
-		description: 'Recolectar la piedra del alma',
-		done: false,
-	},
-	{
-		id: new Date().getTime() * 3,
-		description: 'Recolectar la piedra del tiempo',
-		done: false,
-	},
+	// {
+	// 	id: new Date().getTime(),
+	// 	description: 'Recolectar la piedra del alma',
+	// 	done: false,
+	// },
+	// {
+	// 	id: new Date().getTime() * 3,
+	// 	description: 'Recolectar la piedra del tiempo',
+	// 	done: false,
+	// },
 ];
 
-export const TodoApp = () => {
-	//hook para agregar los todos
-	const [todos, dispatch] = useReducer(todoReducer, initialState);
+const init = () => {
+	return JSON.parse(localStorage.getItem('todos')) || [];
+};
 
-	// funsion para agregar los nuevos todos
+export const TodoApp = () => {
+	//hook para cambiar el estado de los todos
+	const [todos, dispatch] = useReducer(todoReducer, initialState, init);
+
+	// hook para guardar la informacion (todo) en el local storage
+	useEffect(() => {
+		localStorage.setItem('todos', JSON.stringify(todos));
+
+		return () => {};
+	}, [todos]);
+
+	// funsion para agregar los nuevos todo
 	const handleNewTodo = (todo) => {
 		const action = {
 			type: '[TODO] Add todo',
 			payload: todo,
 		};
 		dispatch(action);
+	};
+	// funsion para eliminar un todo
+	const handleDeleteTodo = (id) => {
+		dispatch({
+			type: '[TODO] Delete todo',
+			payload: id,
+		});
 	};
 
 	return (
@@ -36,7 +56,7 @@ export const TodoApp = () => {
 
 			<div className='row'>
 				<div className='col-7'>
-					<TodoList todos={todos} />
+					<TodoList todos={todos} onDeleteTodo={handleDeleteTodo} />
 				</div>
 				<div className='col-5'>
 					<h4>Agregar TODO</h4>
