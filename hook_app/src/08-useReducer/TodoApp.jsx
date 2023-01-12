@@ -14,12 +14,18 @@ const initialState = [
 	},
 ];
 
-const handleNewTodo = (todo) => {
-	console.log({ todo });
-};
-
 export const TodoApp = () => {
+	//hook para agregar los todos
 	const [todos, dispatch] = useReducer(todoReducer, initialState);
+
+	// funsion para agregar los nuevos todos
+	const handleNewTodo = (todo) => {
+		const action = {
+			type: '[TODO] Add todo',
+			payload: todo,
+		};
+		dispatch(action);
+	};
 
 	return (
 		<>
