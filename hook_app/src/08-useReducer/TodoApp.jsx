@@ -1,63 +1,23 @@
-import { useEffect, useReducer } from 'react';
+import { useTodo } from '../hooks';
 
-import { TodoAdd, TodoList, todoReducer } from './';
-
-//estado inicial de hook de todos
-const initialState = [
-	// {
-	// 	id: new Date().getTime(),
-	// 	description: 'Recolectar la piedra del alma',
-	// 	done: false,
-	// },
-	// {
-	// 	id: new Date().getTime() * 3,
-	// 	description: 'Recolectar la piedra del tiempo',
-	// 	done: false,
-	// },
-];
-
-// funcion para guardar en el local Store
-const init = () => {
-	return JSON.parse(localStorage.getItem('todos')) || [];
-};
+import { TodoAdd, TodoList } from './';
 
 export const TodoApp = () => {
-	//hook para cambiar el estado de los todos
-	const [todos, dispatch] = useReducer(todoReducer, initialState, init);
-
-	// hook para guardar la informacion (todo) en el local storage
-	useEffect(() => {
-		localStorage.setItem('todos', JSON.stringify(todos));
-	}, [todos]);
-
-	// funsion para agregar los nuevos todo
-	const handleNewTodo = (todo) => {
-		const action = {
-			type: '[TODO] Add Todo',
-			payload: todo,
-		};
-		dispatch(action);
-	};
-	// funsion para eliminar un todo
-	const handleDeleteTodo = (id) => {
-		dispatch({
-			type: '[TODO] Delete Todo',
-			payload: id,
-		});
-	};
-
-	// funsion para tachar el todo
-	const handleToggleTodo = (id) => {
-		dispatch({
-			type: '[TODO] Toggle Todo',
-			payload: id,
-		});
-	};
+	//custom hooks para menejar las funsines de los Todos
+	const {
+		todos,
+		todosCount,
+		pendingTodosCount,
+		handleNewTodo,
+		handleDeleteTodo,
+		handleToggleTodo,
+	} = useTodo();
 
 	return (
 		<>
 			<h1>
-				TodoApp; 10, <small>pendientes: 2</small>
+				TodoApp {todosCount},{' '}
+				<small>pendientes: {pendingTodosCount}</small>
 			</h1>
 			<hr />
 
