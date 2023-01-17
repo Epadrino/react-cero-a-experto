@@ -14,6 +14,7 @@ export const MainApp = () => {
 				<Route path='/' element={<HomePage />} />
 				<Route path='about' element={<AboutPage />} />
 				<Route path='login' element={<LoginPage />} />
+				{/* componente que redireccione si escriben una pagina que no existe */}
 				<Route path='/*' element={<Navigator to='/about' />} />
 			</Routes>
 		</UserProvider>

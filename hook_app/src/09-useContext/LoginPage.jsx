@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { UserContex } from './context/userContex';
 
 export const LoginPage = () => {
+	// hook para comunicarse con toda la app
 	const { user, setUser, usuario } = useContext(UserContex);
 
 	return (
