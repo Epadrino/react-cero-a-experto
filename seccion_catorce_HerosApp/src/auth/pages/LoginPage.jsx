@@ -1,11 +1,17 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 export const LoginPage = () => {
+	//hook para poder llamar la funcion de login
+	const { login } = useContext(AuthContext);
+
 	//custom hook de Reac Router para navegar en la app
 	const navigate = useNavigate();
 
 	//funsion para logearse
 	const onLogin = () => {
+		login('Eduardo');
 		navigate('/', { replace: true });
 	};
 	return (
