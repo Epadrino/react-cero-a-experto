@@ -7,10 +7,12 @@ export const Navbar = () => {
 	const navigate = useNavigate();
 
 	//hooks para extraer el nombre de usuario
-	const { user } = useContext(AuthContext);
+	const { user, logout } = useContext(AuthContext);
 
 	// funsion para deslogearse
 	const onLoggout = () => {
+		logout();
+
 		navigate('/login', {
 			// evita regresar a la pagina anterior
 			replace: true,
