@@ -3,6 +3,7 @@ import queryString from 'query-string';
 
 import { useForm } from '../../hooks';
 import { HeroCard } from '../components/HeroCard';
+import { getHeroesByName } from '../helpers';
 
 export const SearchPage = () => {
 	//constante para poder pasar parametros a la url
@@ -14,9 +15,12 @@ export const SearchPage = () => {
 	//constante para poder extraer los query parametros del search a la eseLocalicacion
 	const { q = '' } = queryString.parse(location.search);
 
+	//constante para poder usar lo query parametroas obtenidos de la busqueda
+	const heroes = getHeroesByName(q);
+
 	//custom Hook para uso del formulario
 	const { searchText, onInputChange } = useForm({
-		searchText: '',
+		searchText: q,
 	});
 
 	//funcion para obtener el contenido del formulario y pasarlo a la url
@@ -60,8 +64,9 @@ export const SearchPage = () => {
 					<div className='alert alert-primary'>
 						No hero witch <b>{q}</b>
 					</div>
-
-					{/* <HeroCard /> */}
+					{heroes.map((hero) => (
+						<HeroCard key={hero.id} {...hero} />
+					))}
 				</div>
 			</div>
 		</>
