@@ -11,7 +11,7 @@ export const LoginPage = () => {
 
 	//funsion para logearse
 	const onLogin = () => {
-		login('Eduardo');
+		login('Eduardo Padrino');
 		navigate('/', { replace: true });
 	};
 	return (

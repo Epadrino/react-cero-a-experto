@@ -1,8 +1,13 @@
+import { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth/context/AuthContext';
 
 export const Navbar = () => {
 	//custom hook de Reac Router para navegar en la app
 	const navigate = useNavigate();
+
+	//hooks para extraer el nombre de usuario
+	const { user } = useContext(AuthContext);
 
 	// funsion para deslogearse
 	const onLoggout = () => {
@@ -51,7 +56,7 @@ export const Navbar = () => {
 			<div className='navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end'>
 				<ul className='navbar-nav ml-auto'>
 					<span className='nav-item nav-link text-primary'>
-						Eduardo
+						{user?.name}
 					</span>
 					<button
 						className='nav-item nav-link btn'
