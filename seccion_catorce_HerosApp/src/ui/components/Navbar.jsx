@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../auth/context/AuthContext';
 
 export const Navbar = () => {
-	//custom hook de Reac Router para navegar en la app
+	//custom hook de React Router para navegar en la app
 	const navigate = useNavigate();
 
 	//hooks para extraer el nombre de usuario

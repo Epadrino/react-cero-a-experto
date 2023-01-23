@@ -11,8 +11,10 @@ export const LoginPage = () => {
 
 	//funsion para logearse
 	const onLogin = () => {
+		const lastPath = localStorage.getItem('lastPath') || '/';
+
 		login('Eduardo Padrino');
-		navigate('/', { replace: true });
+		navigate(lastPath, { replace: true });
 	};
 	return (
 		<div className='container mt-5'>
