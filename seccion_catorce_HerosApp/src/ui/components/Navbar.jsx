@@ -10,7 +10,7 @@ export const Navbar = () => {
 	const { user, logout } = useContext(AuthContext);
 
 	// funsion para deslogearse
-	const onLoggout = () => {
+	const onLogout = () => {
 		logout();
 
 		navigate('/login', {
@@ -18,6 +18,7 @@ export const Navbar = () => {
 			replace: true,
 		});
 	};
+
 	return (
 		<nav className='navbar navbar-expand-sm navbar-dark bg-dark p-2'>
 			<Link className='navbar-brand' to='/'>
@@ -62,7 +63,7 @@ export const Navbar = () => {
 					</span>
 					<button
 						className='nav-item nav-link btn'
-						onClick={onLoggout}
+						onClick={onLogout}
 					>
 						Logout
 					</button>

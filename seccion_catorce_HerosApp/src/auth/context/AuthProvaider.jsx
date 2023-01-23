@@ -21,7 +21,7 @@ const init = () => {
 
 export const AuthProvaider = ({ children }) => {
 	//hook para autenticar al usuario
-	const [authState, dispatch] = useReducer(authReducer, initialState, init);
+	const [authState, dispatch] = useReducer(authReducer, {}, init);
 
 	// funcion para logearse
 	const login = (name = '') => {

@@ -1,10 +1,10 @@
 import { AuthProvaider } from './auth/context/AuthProvaider';
-import { AppRauter } from './router/AppRauter';
+import { AppRouter } from './router/AppRouter';
 
 export const HeroesApp = () => {
 	return (
 		<AuthProvaider>
-			<AppRauter />;
+			<AppRouter />;
 		</AuthProvaider>
 	);
 };
