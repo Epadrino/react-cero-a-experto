@@ -4,6 +4,7 @@ import {
 	Divider,
 	Drawer,
 	Grid,
+	List,
 	ListItem,
 	ListItemButton,
 	ListItemIcon,
@@ -36,7 +37,7 @@ export const SideBar = ({ drawerWidth = 240 }) => {
 				</Toolbar>
 				<Divider />
 
-				<list>
+				<List>
 					{['Enero', 'Febrero', 'Marzo', 'Abril'].map((text) => (
 						<ListItem key={text} disablePadding>
 							<ListItemButton>
@@ -54,7 +55,7 @@ export const SideBar = ({ drawerWidth = 240 }) => {
 							</ListItemButton>
 						</ListItem>
 					))}
-				</list>
+				</List>
 			</Drawer>
 		</Box>
 	);
