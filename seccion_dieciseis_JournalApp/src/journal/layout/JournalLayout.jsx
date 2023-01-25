@@ -1,13 +1,13 @@
 import { Box } from '@mui/system';
 import React from 'react';
-import { Navbar } from '../components/Navbar';
+import { Navbar, SideBar } from '../components';
 
 export const JournalLayout = ({ children }) => {
 	const drawerWidth = 240;
 	return (
 		<Box sx={{ display: 'flex' }}>
 			<Navbar drawerWidth={drawerWidth} />
-			{/* siderbar */}
+			<SideBar drawerWidth={drawerWidth} />
 
 			<Box component='main' sx={{ flecGrow: 1, p: 3 }}>
 				{/*toobal*/}
