@@ -22,10 +22,7 @@ export const PokemonApp = () => {
 			{<spam>Loafing: {isLoading ? 'True' : 'false'} </spam>}
 			<ul>
 				{pokemons.map(({ name }) => (
-					<li key={name}>
-						{name}
-						{/* <img src={'none'} className='card-img' alt={name} /> */}
-					</li>
+					<li key={name}>{name}</li>
 				))}
 			</ul>
 			<button
